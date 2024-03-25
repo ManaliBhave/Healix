@@ -35,4 +35,4 @@ Patient satisfaction
 
 Python, Flask, HTML, CSS, JavaScriipt
 
-![alt text](https://file%2B.vscode-resource.vscode-cdn.net/Users/manali/Documents/Codes/GitHub/Healix/image.png?version%3D1711364417668)
+![image](https://github.com/ManaliBhave/Healix/assets/83704552/8743a12b-9853-4716-9099-3fd5df9c6c3f)

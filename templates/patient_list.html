@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block css %}
+<link href="{{url_for('static', filename = 'css/upload_details.css')}}" rel="stylesheet" />
+
+{% endblock css %}
+
+{% block bodyname %}
+<div class="sub_page">
+{% endblock bodyname %}
+
+{% block bodyname2 %}
+</div>
+{% endblock bodyname2 %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+      <div class="col">
+        
+      </div>
+      <div class="col">
+        2 of 2
+      </div>
+    </div>
+<form method="post" class="edit-form" enctype="multipart/form-data" id="upload-form">
+
+    <p class="edit-form-title event-card-edit-title">What all symptoms are you currently facing? </p>
+
+    <div class="edit-form-field-wrap-single">
+        <p class="edit-form-field-label">Search Box</p>
+        <input type="text" name="search" id="search" list="search-options" class="edit-form-field-input">
+        <datalist id="search-options">
+            {% for option in search_options %}
+                <option value="{{ option }}">
+            {% endfor %}
+        </datalist>
+    </div>
+    
+    <div class="edit-form-field-wrap-single" id="days-input" style="display: none;">
+        <p class="edit-form-field-label">Number of Days</p>
+        <input type="number" name="number_of_days" id="number_of_days" class="edit-form-field-input">
+    </div>
+    
+    <div class="edit-form-field-wrap-single" id="temperature-input" style="display: none;">
+        <p class="edit-form-field-label">Temperature</p>
+        <input type="text" name="temperature" id="temperature" class="edit-form-field-input">
+    </div>
+    
+    <div class="edit-submit-button-wrap">
+        <button type="button" id="add-option-button" class="edit-submit-button button-shadow ">Add Option</button>
+        <button type="submit" class="edit-submit-button button-shadow">Save Changes</button>
+    </div>
+
+    <div id="selected-options"></div>
+</form>
+
+{% endblock body %}
+
+{% block js %}
+
+{% endblock js %}

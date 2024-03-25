@@ -1,0 +1,432 @@
+{% extends "layout.html" %} {% block css %} {% endblock css %} {% block nav %}
+<div class="hero_bg_box">
+  <img
+    src="{{url_for('static', filename = 'assets/images/hero-bg.png')}}"
+    alt=""
+  />
+</div>
+{% endblock nav %} {% block nav2 %}
+<!-- slider section -->
+<section class="slider_section">
+  <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-7">
+              <div class="detail-box">
+                <h1>EMPOWERING WELLNESS, PREVENTING RETURN</h1>
+                <p>
+                  Your trusted guide to staying healthy and out of the hospital. With personalized care and proactive support, we're here to keep you thriving at home. Break the cycle of readmissions and embrace a brighter, healthier future with Helix by your side.
+                </p>
+                <div class="btn-box">
+                  <a href="" class="btn1"> Read More </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-7">
+              <div class="detail-box">
+                <h1>TOGETHER TOWARDS BETTER HEALTH.</h1>
+                <p>
+                  Join us in our journey to prioritize wellness and reduce hospital visits. With our collaborative approach, we're committed to empowering individuals and communities to thrive. Let's work hand in hand to achieve lasting health outcomes and build a healthier future together with Healix
+                </p>
+                <div class="btn-box">
+                  <a href="" class="btn1"> Read More </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-7">
+              <div class="detail-box">
+                <h1>TRANSFORMING CARE, REDEFINING RECOVERY.</h1>
+                <p>
+                  We're revolutionizing the healthcare experience by focusing on innovative approaches to healing and support. Our aim is to redefine what recovery means, emphasizing long-term well-being and resilience. Experience the difference with Helix as we transform care pathways and empower you on your journey to lasting health.
+                </p>
+                <div class="btn-box">
+                  <a href="" class="btn1"> Read More </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ol class="carousel-indicators">
+      <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
+      <li data-target="#customCarousel1" data-slide-to="1"></li>
+      <li data-target="#customCarousel1" data-slide-to="2"></li>
+    </ol>
+  </div>
+</section>
+{% endblock nav2 %} {% block body %}
+<!-- department section -->
+
+<section class="department_section layout_padding">
+  <div class="department_container">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>Our Departments</h2>
+        <p>
+          Asperiores sunt consectetur impedit nulla molestiae delectus repellat
+          laborum dolores doloremque accusantium
+        </p>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="box">
+            <div class="img-box">
+              <img
+                src="{{url_for('static', filename='assets/images/s1.png')}}"
+                alt=""
+              />
+            </div>
+            <div class="detail-box">
+              <h5>Drug's Interaction</h5>
+              <p>
+                How a certain drug behaves with other drugs
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="box">
+            <div class="img-box">
+              <img
+                src="{{url_for('static', filename='assets/images/s2.png')}}"
+                alt=""
+              />
+            </div>
+            <div class="detail-box">
+              <h5>Report Analysis</h5>
+              <p>
+                Parses and analyzes the report passed by the user.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="box">
+            <div class="img-box">
+              <img
+                src="{{url_for('static', filename='assets/images/s3.png')}}"
+                alt=""
+              />
+            </div>
+            <div class="detail-box">
+              <h5>Diseases Prediction</h5>
+              <p>
+                Predicts the possiblity of having a certain diseases
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="box">
+            <div class="img-box">
+              <img
+                src="{{url_for('static', filename='assets/images/s4.png')}}"
+                alt=""
+              />
+            </div>
+            <div class="detail-box">
+              <h5>Drug Alternative</h5>
+              <p>
+                Provides a cheaper alternative or other option the patient can opt.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="btn-box">
+        <a href=""> View All </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- end department section -->
+
+<!-- about section -->
+
+<section class="about_section layout_margin-bottom">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="img-box">
+          <img
+            src="{{url_for('static', filename='assets/images/about-img.jpg')}}"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="detail-box">
+          <div class="heading_container">
+            <h2>About <span>Us</span></h2>
+          </div>
+          <p>
+            Healix has successfully reduced readmission rates by implementing evidence-based practices and innovative strategies to improve care transitions. Our approach has not only led to better patient outcomes but also resulted in significant cost savings for healthcare systems and payers.
+          </p>
+          <a href=""> Read More </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- end about section -->
+
+<!-- doctor section -->
+
+<section class="doctor_section layout_padding">
+  <div class="container">
+    <div class="heading_container heading_center">
+      <h2>Our Doctors</h2>
+      <p class="col-md-10 mx-auto px-0">
+        Incilint sapiente illo quo praesentium officiis laudantium nostrum, ad
+        adipisci cupiditate sit, quisquam aliquid. Officiis laudantium fuga ad
+        voluptas aspernatur error fugiat quos facilis saepe quas fugit, beatae
+        id quisquam.
+      </p>
+    </div>
+    <div class="row">
+      <div class="col-sm-6 col-lg-4 mx-auto">
+        <div class="box">
+          <div class="img-box">
+            <img
+              src="{{url_for('static', filename='assets/images/d1.jpg')}}"
+              alt=""
+            />
+          </div>
+          <div class="detail-box">
+            <div class="social_box">
+              <a href="">
+                <i class="fa-solid fa-comment-dots"></i>
+            </a>
+            </div>
+            <h5>Manali Bhave</h5>
+            <h6 class="">Doctor</h6>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4 mx-auto">
+        <div class="box">
+          <div class="img-box">
+            <img
+              src="{{url_for('static', filename='assets/images/d2.jpg')}}"
+              alt=""
+            />
+          </div>
+          <div class="detail-box">
+            <div class="social_box">
+              <a href="/chat/room/4444">
+                <i class="fa-solid fa-comment-dots"></i>
+            </a>
+            </div>
+            <h5>Mikil Lalwani</h5>
+            <h6 class="">Doctor</h6>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4 mx-auto">
+        <div class="box">
+          <div class="img-box">
+            <img
+              src="{{url_for('static', filename='assets/images/d3.jpg')}}"
+              alt=""
+            />
+          </div>
+          <div class="detail-box">
+            <div class="social_box">
+              <a href="">
+                <i class="fa-solid fa-comment-dots"></i>
+            </a>
+            </div>
+            <h5>Mohini Bhave</h5>
+            <h6 class="">Doctor</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="btn-box">
+      <a href=""> View All </a>
+    </div>
+  </div>
+</section>
+
+<!-- end doctor section -->
+
+<!-- contact section -->
+<section class="contact_section layout_padding">
+  <div class="container">
+    <div class="heading_container">
+      <h2>Get In Touch</h2>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form_container contact-form">
+          <form action="">
+            <div class="form-row">
+              <div class="col-lg-6">
+                <div>
+                  <input type="text" placeholder="Your Name" />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div>
+                  <input type="text" placeholder="Phone Number" />
+                </div>
+              </div>
+            </div>
+            <div>
+              <input type="email" placeholder="Email" />
+            </div>
+            <div>
+              <input type="text" class="message-box" placeholder="Message" />
+            </div>
+            <div class="btn_box">
+              <button>SEND</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="map_container">
+          <div class="map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d60323.275771428554!2d72.8737493!3d19.0986722!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c93c12809381%3A0xf00ed18120bd3af4!2sPersistent%20Systems%20Limited!5e0!3m2!1sen!2sin!4v1708816711302!5m2!1sen!2sin"
+              width="100%"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end contact section -->
+
+<!-- client section -->
+
+<section class="client_section layout_padding-bottom">
+  <div class="container">
+    <div class="heading_container heading_center">
+      <h2>Testimonial</h2>
+    </div>
+    <div
+      id="carouselExample2Controls"
+      class="carousel slide"
+      data-ride="carousel"
+    >
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="row">
+            <div class="col-md-11 col-lg-10 mx-auto">
+              <div class="box">
+                <div class="img-box">
+                  <img
+                    src="{{url_for('static', filename='assets/images/client.jpg')}}"
+                    alt=""
+                  />
+                </div>
+                <div class="detail-box">
+                  <div class="name">
+                    <h6>Soham</h6>
+                  </div>
+                  <p>
+                    Healix has been a game-changer for me and my family. Their proactive approach to healthcare has not only prevented numerous hospital readmissions but has also given us peace of mind knowing that we have a dedicated team supporting our wellness journey. Thanks to Healix, we've been able to focus on living our lives fully, without the constant fear of returning to the hospital.
+                  </p>
+                  <i class="fa fa-quote-left" aria-hidden="true"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="row">
+            <div class="col-md-11 col-lg-10 mx-auto">
+              <div class="box">
+                <div class="img-box">
+                  <img
+                    src="{{url_for('static', filename='assets/images/client.jpg')}}"
+                    alt=""
+                  />
+                </div>
+                <div class="detail-box">
+                  <div class="name">
+                    <h6>Anket</h6>
+                  </div>
+                  <p>
+                    Healix has been a game-changer for me and my family. Their proactive approach to healthcare has not only prevented numerous hospital readmissions but has also given us peace of mind knowing that we have a dedicated team supporting our wellness journey. Thanks to Healix, we've been able to focus on living our lives fully, without the constant fear of returning to the hospital.
+                  </p>
+                  <i class="fa fa-quote-left" aria-hidden="true"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="row">
+            <div class="col-md-11 col-lg-10 mx-auto">
+              <div class="box">
+                <div class="img-box">
+                  <img
+                    src="{{url_for('static', filename='assets/images/client.jpg')}}"
+                    alt=""
+                  />
+                </div>
+                <div class="detail-box">
+                  <div class="name">
+                    <h6>Raghav</h6>
+                  </div>
+                  <p>
+                    Healix has been a game-changer for me and my family. Their proactive approach to healthcare has not only prevented numerous hospital readmissions but has also given us peace of mind knowing that we have a dedicated team supporting our wellness journey. Thanks to Healix, we've been able to focus on living our lives fully, without the constant fear of returning to the hospital.
+                  </p>
+                  <i class="fa fa-quote-left" aria-hidden="true"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel_btn-container">
+        <a
+          class="carousel-control-prev"
+          href="#carouselExample2Controls"
+          role="button"
+          data-slide="prev"
+        >
+          <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a
+          class="carousel-control-next"
+          href="#carouselExample2Controls"
+          role="button"
+          data-slide="next"
+        >
+          <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- end client section -->
+{% endblock body %} {% block js %} {% endblock js %}

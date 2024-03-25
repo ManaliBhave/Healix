@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+
+{% block css %}
+<link href="{{ url_for('static', filename='css/medication.css') }}" rel="stylesheet">
+{% endblock css %}
+
+{% block bodyname %}
+<div class="sub_page">
+{% endblock bodyname %}
+
+{% block bodyname2 %}
+</div>
+{% endblock bodyname2 %}
+
+{% block body %}
+<div class="container d-flex flex-column align-items-center">
+    <form method="post" class="edit-form" enctype="multipart/form-data" id="upload-form">
+        <p class="edit-form-title event-card-edit-title">Tell us about your current medications</p>
+        
+        <div class="edit-form-field-wrap-single">
+            <p class="edit-form-field-label">Dosage</p>
+            <input type="text" name="dosage" id="Dosage" class="edit-form-field-input" placeholder="Enter Dosage">
+        </div>
+        
+        <div class="edit-form-field-wrap-single">
+            <p class="edit-form-field-label">Search Box</p>
+            <select name="medication" id="search" class="edit-form-field-input">
+                <option value="">Select a medication...</option>
+            </select>
+        </div>
+        
+        <div class="edit-submit-button-wrap">
+            <button type="submit" class="edit-submit-button button-shadow">Save Changes</button>
+        </div>
+    </form>
+    
+</div>
+{% endblock body %}
+
+{% block js %}
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var searchOptions = document.getElementById('search');
+        var medicines = [
+            "Augmentin 625 Duo Tablet",
+            "Azithral 500 Tablet",
+            "Ascoril LS Syrup",
+            "Allegra 120mg Tablet",
+            "Avil 25 Tablet",
+            "Allegra-M Tablet",
+            "Amoxyclav 625 Tablet",
+            "Azee 500 Tablet",
+            "Atarax 25mg Tablet",
+            "Ascoril D Plus Syrup Sugar Free",
+            "Aciloc 150 Tablet",
+            "Alex Syrup",
+            "Anovate Cream",
+            "Augmentin Duo Oral Suspension",
+            "Ambrodil-S Syrup",
+            "Arkamin Tablet",
+            "Avomine Tablet",
+            "Asthakind-DX Syrup Sugar Free",
+            "Allegra 180mg Tablet",
+            "Albendazole 400mg Tablet",
+            "Asthalin Syrup",
+            "Alprax 0.25 Tablet",
+            "Altraday Capsule SR",
+            "Ativan 2mg Tablet",
+            "Ascoril LS Junior Syrup",
+            "Asthalin 100mcg Inhaler",
+            "Almox 500 Capsule",
+            "Atarax 10mg Tablet",
+            "Aciloc RD 20 Tablet",
+            "Aldactone Tablet",
+        ];
+
+        function populateMedicines() {
+            medicines.forEach(function(medicine) {
+                var optionElement = document.createElement('option');
+                optionElement.value = medicine;
+                optionElement.textContent = medicine;
+                searchOptions.appendChild(optionElement);
+            });
+        }
+
+        // Populate medicines when the DOM is loaded
+        populateMedicines();
+    });
+</script>
+{% endblock js %}

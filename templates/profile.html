@@ -1,0 +1,37 @@
+{% extends "layout.html" %} {% block css %}
+<link
+  href="{{url_for('static', filename = 'css/profile.css')}}"
+  rel="stylesheet"
+/>
+{% endblock css %} {% block bodyname %}
+<div class="sub_page">{% endblock bodyname %} {% block bodyname2 %}</div>
+{% endblock bodyname2 %} {% block body %}
+<div class="profile-wrap">
+  <p class="profile-name">Name: {{username}}</p>
+  <p class="profile-email">Email: {{useremail}}</p>
+  <p class="profile-contact">Age: {{userage}}</p>
+  <p class="profile-contact">Gender: {{usergender}}</p>
+
+  <div class="globe">
+    {{ plot_html_glucose | safe }}
+  </div>  
+
+  <div class="globe">
+    {{ plot_html_hld | safe }}
+  </div>  
+
+  <div class="globe">
+    {{ plot_html_lld | safe }}
+  </div>  
+
+  <div class="profile-form-grid">
+    <a class="profile-form-link-btn" href="/add_reminders">Add Reminders</a>
+    <a class="profile-form-link-btn" href="/upload/report">Upload Reports</a>
+    <a class="profile-form-link-btn" href="/pneumonia">Pneumonia Prediction</a>
+    <a class="profile-form-link-btn" href="/symptoms">Report Symptoms</a>
+    <a class="profile-form-link-btn" href="/reports">View Reports</a>
+    <a class="profile-form-link-btn" href="/medication/upload">Upload Medications</a>
+    <a class="profile-form-link-btn" href="/medication/view">View Medications</a>
+  </div>
+</div>
+{% endblock body %}

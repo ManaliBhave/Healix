@@ -1,0 +1,45 @@
+{% extends "doctor_layout.html" %}
+
+{% block css %}
+<link
+  href="{{url_for('static', filename = 'css/profile.css')}}"
+  rel="stylesheet"
+/>
+{% endblock css %}
+
+{% block bodyname %}
+<div class="sub_page">
+{% endblock bodyname %}
+
+{% block bodyname2 %}
+</div>
+{% endblock bodyname2 %}
+
+{% block body %}
+<div class="profile-wrap">
+    <p class="profile-name">Name: Shree Samal</p>
+    <p class="profile-email">Email: shree@gmail.com</p>
+    <p class="profile-contact">Age: 21</p>
+    <p class="profile-contact">Gender: Male</p>
+  
+    <div class="globe">
+      {{ plot_html_glucose | safe }}
+    </div>  
+  
+    <div class="globe">
+      {{ plot_html_hld | safe }}
+    </div>  
+  
+    <div class="globe">
+      {{ plot_html_lld | safe }}
+    </div>  
+  
+    <div class="profile-form-grid">
+      <a class="profile-form-link-btn" href="/reports">View Reports</a>
+      <a class="profile-form-link-btn" href="/medication/view">View Medications</a>
+    </div>
+  </div>
+{% endblock body %}
+
+{% block js %}
+{% endblock js %}

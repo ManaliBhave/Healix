@@ -1,0 +1,133 @@
+{% extends "layout.html" %} {% block css %}
+<link
+  href="{{url_for('static', filename = 'css/upload_details.css')}}"
+  rel="stylesheet"
+/>
+
+{% endblock css %} {% block bodyname %}
+<div class="sub_page">
+  {% endblock bodyname %} {% block bodyname2 %}
+  <section class="d-flex justify-content-center m-5">
+    <div class="container w-50 m-5 h-fit">
+      <form method="post" class="border rounded p-4">
+        <div class="form-group">
+          <label   class="edit-form-field-label" for="inputmessage" >Message</label>
+          <input
+            type="text"
+            class="edit-form-field-input"
+            id="msg"
+            name="msg"
+            aria-describedby="message"
+            placeholder="Enter reminder Message"
+          />
+        </div>
+        <div class="form-group">
+          <label class="edit-form-field-label" for="appt">Select a Date:</label>
+          <input class="edit-form-field-input" name="date" type="date" id="date" />
+        </div>
+        <div class="form-group">
+          <label class="edit-form-field-label" for="appt">Select a time:</label>
+          <input class="edit-form-field-input" name='time' type="time" id="time"/>
+        </div>
+        <div class="form-group">
+          <label class="edit-form-field-label" for="type">Medicine/Appointment</label>
+          <select id="med-app" name="med-app" class="form-control edit-form-field-input" >
+            <option id="med" value="med">Medicine</option>
+            <option id="app"  value="app">Appointment</option>
+          </select>
+        </div>
+        <button id="submit" type="submit" class="edit-submit-button button-shadow" value="submit">Add reminder <strong>+</strong></button>
+      </form>
+    </div>
+    <div class="reminders " style="max-height: 600px; overflow-y: auto; ">
+        {% for reminder in reminders %}
+      <div class="card m-2" style="width: 18rem">
+        <div class="card-body">
+           {{reminder.msg}}
+          </p>
+          <p class="card-text">Time: {{reminder.time}}</p>
+          <a href="#" class="card-link">Delete</a>
+        </div>
+      </div>
+        {% endfor %}
+    </div>
+  </section>
+
+  {% endblock bodyname2 %} {% block body %} {% endblock body %}
+</div>
+<script type="text/javascript">
+    // const submitButton = document.getElementById('submit');
+    // const signInButton = document.getElementById('signIn');
+    // const container = document.getElementById('container');
+
+    // submitButton.addEventListener('click', () => {
+    //   container.classList.add("right-panel-active");
+    // });
+    // signInButton.addEventListener('click', () => {
+    //   container.classList.remove("right-panel-active");
+    // });
+
+    // function submit(e) {
+    //   e.preventDefault();
+    //   let form = document.getElementById("reminder");
+    //   let msg = form.querySelector("[id='msg']").value;
+    //   let date = form.querySelector("[id='date']").value;
+    //   let time = form.querySelector("[id='time']").value;
+    // //   let medapp = form.querySelector("[id='time']").value;
+    //   let data = {
+    //     msg,date,time
+    //   };
+    //   fetch("/reminder", {
+    //       method: "POST",
+    //       headers: {
+    //         "Content-Type": "application/json"
+    //       },
+    //       body: JSON.stringify(data)
+    //     }).then(res => res.json())
+    //     .then(data => {
+    //       if (data.message == "success") {
+    //         alert("Posted");
+    //         // window.location.href = "/";
+    //       } else {
+    //         alert(data.message);
+    //       }
+    //     })
+    //     .catch(err => console.log(err));
+    // }
+
+    // // async function register(e) {
+    // //   e.preventDefault();
+    // //   let form = document.getElementById("signUpForm");
+    // //   let name = form.querySelector("[name='name']").value;
+    // //   let email = form.querySelector("[name='email']").value;
+    // //   let password = form.querySelector("[name='password']").value;
+    // //   let contact = form.querySelector("[name='contact']").value;
+    // //   let address = form.querySelector("[name='address']").value;
+	// // 	let data = {
+	// // 		name,
+	// // 		email,
+	// // 		password,
+	// // 		contact,
+	// // 		address
+	// // 	};
+	// // 	fetch("/register", {
+	// // 		method: "POST",
+	// // 		headers: {
+	// // 		"Content-Type": "application/json"
+	// // 		},
+	// // 		body: JSON.stringify(data)
+	// // 	}).then(res => res.json())
+	// // 	.then(data => {
+	// // 		if (data.message == "success") {
+	// // 		alert("Registration Successfull");
+	// // 		window.location.reload();
+	// // 		} else {
+	// // 		alert(data.message);
+	// // 		}
+	// // 	})
+	// // 	.catch(err => console.log(err));
+
+    // // }
+
+
+  </script>

@@ -1,0 +1,64 @@
+{% extends "layout.html" %} {% block css %}
+<link
+  href="{{url_for('static', filename = 'css/upload_details.css')}}"
+  rel="stylesheet"
+/>
+{% endblock css %} {% block bodyname %}
+<div class="sub_page">{% endblock bodyname %} {% block bodyname2 %}</div>
+{% endblock bodyname2 %} {% block body %}
+<form id="form_submit" class="edit-form" enctype="multipart/form-data">
+  <p class="edit-form-title event-card-edit-title">Upload Image</p>
+
+  <div class="edit-form-field-wrap-single">
+    <p class="edit-form-field-label">Image</p>
+    <input
+      type="file"
+      name="image"
+      class="edit-form-field-input file-input"
+      accept="image/*"
+    />
+  </div>
+
+  <div class="edit-submit-button-wrap">
+    <button  class="edit-submit-button button-shadow">
+      Submit Image
+    </button>
+  </div>
+  <p
+    id="output"
+    style="display: none; justify-content: center; align-items: center"
+    class="edit-form-title event-card-edit-title"
+  >
+    Your Test Result is Negative.
+  </p>
+</form>
+{% endblock body %} {% block js %} 
+<script>
+    document.getElementById('form_submit').addEventListener("submit",(e)=>{
+        e.preventDefault();
+         const formData = new FormData(document.getElementById('form_submit'));
+    
+    // Send POST request to the server
+        fetch('/ecg', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Handle response data
+            let output = document.getElementById('output')
+            output.style.display = "flex"
+            output.innerHTML = data["result"]
+        })
+        .catch(error => {
+            // Handle errors
+            console.error('There was a problem with the fetch operation:', error);
+        });
+    })
+</script>
+{% endblock js %}

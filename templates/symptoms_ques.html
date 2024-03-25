@@ -1,0 +1,189 @@
+{% extends "layout.html" %}
+
+{% block css %}
+<link href="{{url_for('static', filename = 'css/upload_details.css')}}" rel="stylesheet" />
+
+{% endblock css %}
+
+{% block bodyname %}
+<div class="sub_page">
+{% endblock bodyname %}
+
+{% block bodyname2 %}
+</div>
+{% endblock bodyname2 %}
+
+{% block body %}
+<form method="post" class="edit-form" enctype="multipart/form-data" id="upload-form">
+
+    <p class="edit-form-title event-card-edit-title">What all symptoms are you having </p>
+
+    <div class="edit-form-field-wrap-single">
+        <p class="edit-form-field-label">Search Box</p>
+        <input type="text" name="search" id="search" list="search-options" class="edit-form-field-input">
+        <datalist id="search-options">
+            {% for option in search_options %}
+                <option value="{{ option }}">
+            {% endfor %}
+        </datalist>
+    </div>
+    
+    <div class="edit-form-field-wrap-single" id="days-input" style="display: none;">
+        <p class="edit-form-field-label">Number of Days</p>
+        <input type="number" name="number_of_days" id="number_of_days" class="edit-form-field-input">
+    </div>
+    
+    <div class="edit-form-field-wrap-single" id="temperature-input" style="display: none;">
+        <p class="edit-form-field-label">Temperature</p>
+        <input type="text" name="temperature" id="temperature" class="edit-form-field-input">
+    </div>
+    
+    <div class="edit-submit-button-wrap">
+        <button type="button" id="add-option-button" class="edit-submit-button button-shadow ">Add Option</button>
+        <button type="submit" class="edit-submit-button button-shadow">Save Changes</button>
+    </div>
+
+    <div id="selected-options"></div>
+</form>
+
+{% endblock body %}
+
+{% block js %}
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var searchInput = document.getElementById('search');
+        var daysInput = document.getElementById('days-input');
+        var temperatureInput = document.getElementById('temperature-input');
+        var searchOptions = document.getElementById('search-options');
+        var addButton = document.getElementById('add-option-button');
+        var selectedOptionsContainer = document.getElementById('selected-options');
+        var form = document.getElementById('upload-form');
+        var numberOfDaysInput = document.getElementById('number_of_days');
+        var temperature = document.getElementById('temperature');
+    
+        // Define search options
+        var search_options = [
+    "Continuous sneezing",
+    "Chills",
+    "Stomach pain",
+    "Vomiting",
+    "Fatigue",
+    "Cold hands and feets",
+    "Weight loss",
+    "Cough",
+    "High fever",
+    "Breathlessness",
+    "Sweating",
+    "Dehydration",
+    "Nausea",
+    "Diarrhoea",
+    "Malaise",
+    "Phlegm",
+    "Chest pain",
+    "Fast heart rate",
+    "Dizziness",
+    "Swollen legs",
+    "Rusty sputum",
+    "Swelling in belly area",
+    "Reduced Concentration",
+    "Confusion"
+];
+    
+        var selectedOptions = [];
+    
+        addButton.addEventListener('click', function() {
+            var selectedValue = searchInput.value.trim();
+            var numberOfDaysValue = numberOfDaysInput.value.trim();
+            var temperatureValue = temperature.value.trim();
+            if (selectedValue && selectedOptions.findIndex(option => option.value === selectedValue) === -1) {
+                selectedOptions.push({ value: selectedValue, numberOfDays: numberOfDaysValue, temperature: temperatureValue });
+                renderSelectedOptions();
+                repopulateOptions(); 
+                numberOfDaysInput.value = "";
+                temperature.value = "";
+                searchInput.value = ""; // Clear the search input field
+                searchInput.focus(); // Put focus back on the search input field
+            }
+        });
+    
+        function renderSelectedOptions() {
+
+    // Clear existing hidden input fields
+    var existingHiddenInputs = form.querySelectorAll('input[type="hidden"]');
+    existingHiddenInputs.forEach(function(hiddenInput) {
+        form.removeChild(hiddenInput);
+    });
+
+    selectedOptionsContainer.innerHTML = '';
+    selectedOptions.forEach(function(option) {
+        var optionElement = document.createElement('div');
+        optionElement.textContent = option.value + ' - ' + option.numberOfDays + ' days';
+        if (option.value === 'High_fever') {
+            optionElement.textContent += ' - Temperature: ' + option.temperature + ' °C';
+        }
+        selectedOptionsContainer.appendChild(optionElement);
+
+        var hiddenInputOption = document.createElement('input');
+        hiddenInputOption.type = 'hidden';
+        hiddenInputOption.name = 'selected_options[]';
+        hiddenInputOption.value = option.value;
+        form.appendChild(hiddenInputOption);
+
+        var hiddenInputNumberOfDays = document.createElement('input');
+        hiddenInputNumberOfDays.type = 'hidden';
+        hiddenInputNumberOfDays.name = 'number_of_days[]';
+        hiddenInputNumberOfDays.value = option.numberOfDays;
+        form.appendChild(hiddenInputNumberOfDays);
+
+        var hiddenInputTemperature = document.createElement('input');
+        hiddenInputTemperature.type = 'hidden';
+        hiddenInputTemperature.name = 'temperature[]';
+        hiddenInputTemperature.value = option.temperature;
+        form.appendChild(hiddenInputTemperature);
+    });
+}
+ 
+    
+        function repopulateOptions() {
+            searchOptions.innerHTML = ''; 
+            // Clear existing options
+            var fragment = document.createDocumentFragment();
+            search_options.forEach(function(option) {
+                var optionElement = document.createElement('option');
+                optionElement.value = option;
+                fragment.appendChild(optionElement);
+            });
+            searchOptions.appendChild(fragment);
+        }
+
+    
+        searchInput.addEventListener('input', function() {
+            var userInput = this.value.toLowerCase();
+            var options = searchOptions.getElementsByTagName('option');
+            for (var i = 0; i < options.length; i++) {
+                var optionValue = options[i].value.toLowerCase();
+                if (optionValue.indexOf(userInput) !== -1) {
+                    options[i].setAttribute('data-visible', 'true');
+                } else {
+                    options[i].setAttribute('data-visible', 'false');
+                }
+            }
+            daysInput.style.display = 'block';
+            temperatureInput.style.display = 'none';
+            if (userInput === 'high_fever') {
+                temperatureInput.style.display = 'block';
+            }
+        });
+    
+        searchInput.addEventListener('blur', function() {
+            var options = searchOptions.getElementsByTagName('option');
+            for (var i = 0; i < options.length; i++) {
+                if (options[i].getAttribute('data-visible') === 'false') {
+                    searchOptions.removeChild(options[i]);
+                    i--;
+                }
+            }
+        });
+    });
+    </script>
+{% endblock js %}
